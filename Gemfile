@@ -66,5 +66,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'pry-rails'
 gem 'rails_admin'
 gem "sassc-rails"
+gem "devise"
+gem "cancancan", "~> 3.3.0"

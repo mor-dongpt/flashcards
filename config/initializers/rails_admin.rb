@@ -4,13 +4,13 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :admin
+  end
+  config.current_user_method(&:current_admin)
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
@@ -38,5 +38,58 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+
+  config.model "Admin" do
+    list do
+      field :id
+      field :name
+      field :super_admin
+      field :email
+      field :reset_password_token
+      field :reset_password_sent_at
+      field :created_at do
+        # date_format :short
+        strftime_format "%Y-%m-%d"
+      end
+    end
+  end
+
+  config.model "Card" do
+    list do
+      field :id
+      field :name
+      field :deck
+      field :slides
+      field :created_at do
+        # date_format :short
+        strftime_format "%Y-%m-%d"
+      end
+    end
+  end
+
+  config.model "Deck" do
+    list do
+      field :id
+      field :name
+      field :cards
+      field :created_at do
+        # date_format :short
+        strftime_format "%Y-%m-%d"
+      end
+    end
+  end
+
+  config.model "Slide" do
+    list do
+      field :id
+      field :slide_one
+      field :slide_two
+      field :card
+      field :created_at do
+        # date_format :short
+        strftime_format "%Y-%m-%d"
+      end
+    end
   end
 end
