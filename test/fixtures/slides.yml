@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slide_one: MyString
+  slide_two: MyString
+  card: one
+
+two:
+  slide_one: MyString
+  slide_two: MyString
+  card: two
